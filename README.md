@@ -7,7 +7,7 @@ When your Implementation is ready, publish your Aspects by following these Steps
 - Modify `REMOTE-URL`:
 ```
 git remote set-url origin https://github.com/{your-user}/{your-repo}.git
-git push origin main
+git push -u origin main
 ```
 - Or simply copy code into an empty Repository in your Space
 
