@@ -7,15 +7,15 @@ import * as cdk from "aws-cdk-lib";
 import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
 import * as apigateway from "aws-cdk-lib/aws-apigateway";
 
-// ##### apigateway
+// ##### Cloudfront
 
-const api = (api: apigateway.CfnStage): void => {
+const cdn = (cdn: cloudfront.CfnDistribution): void => {
   // Check if logging enabled
 };
 
-// ##### cloudfront
+// ##### ApiGateway
 
-const cdn = (cdn: cloudfront.CfnDistribution): void => {
+const api = (api: apigateway.CfnStage): void => {
   // Check if logging enabled
 };
 
@@ -39,13 +39,13 @@ const s3NotifyEncryption = (bucket: s3.CfnBucket): void => {
 
 export class CustomAspects implements cdk.IAspect {
   public visit(node: IConstruct): void {
-    if (node instanceof s3.CfnBucket) {
 
+    // Apply Cloudfront and ApiGateway Rules here
+    // ...
+
+    if (node instanceof s3.CfnBucket) {
       s3NotifyVersioning(node);
       s3NotifyEncryption(node);
-
-      // Add Apigateway and Cloudfront checks
-      // ...
     }
   }
 }
